@@ -13,7 +13,26 @@ most_common_char
 Given an input string s, return the most common character in s.
 """
 def most_common_char(s):
-	pass
+	di = {}
+	maxCount = -1
+	commonChar = None
+
+	for letter in s:
+		if letter in di:
+			di[letter] += 1
+		else:
+			di[letter] = 1
+
+	for key, value in di.items():
+		if value > maxCount:
+			maxCount = value
+			commonChar = key
+
+	print(commonChar)
+
+
+
+most_common_char("aaaabbbcc")
 
 
 """
