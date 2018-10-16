@@ -13,6 +13,8 @@ most_common_char
 Given an input string s, return the most common character in s.
 """
 def most_common_char(s):
+	if s is None:
+		return None
 	di = {}
 	maxCount = -1
 	commonChar = None
@@ -32,7 +34,7 @@ def most_common_char(s):
 
 
 
-most_common_char("aaaabbbcc")
+
 
 
 """
@@ -56,7 +58,29 @@ Example 2:
 		None
 """
 def alphabet_finder(s):
-	pass
+
+	dict = {}
+
+	for i in range(97, 123):
+		dict[chr(i)] = chr(i)
+
+	index = 0
+
+	for letter in s:
+		index += 1
+		if letter.lower() in dict:
+			dict.pop(letter.lower())
+		if len(dict) == 0:
+			return s[:index]
+
+	return None
+
+x = alphabet_finder("insensitive paella qwertyuiopASDFGHJKLzxcvbnm ")
+print(x)
+
+x = alphabet_finder("")
+print(x)
+
 
 
 """
